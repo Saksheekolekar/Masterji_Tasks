@@ -49,6 +49,9 @@ const OTPForm = () => {
     if (status === 'error') return 'bg-red-500';
     return 'bg-blue-900';
   };
+  const handleImageClick = () => {
+    window.location.href = 'https://www.chaicode.com';
+  };
 
   return (
     <div className="grid grid-rows-4 p-0 m-0 bg-blue-500 w-screen h-screen text-center">
@@ -96,7 +99,7 @@ const OTPForm = () => {
         </form>
       </div>
       <div className="bg-transparent absolute bottom-4 right-4">
-        <img src=".\chai.png" alt="chai"  hlink="" className="w-36 h-24 rounded" />
+        <img src=".\chai.png" alt="chai"  onClick={handleImageClick} className="w-36 h-24 rounded" />
       </div>
     </div>
   );
