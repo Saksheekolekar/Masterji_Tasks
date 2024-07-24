@@ -5,14 +5,17 @@ import OTPForm from './Components/OTPForm';
 import Batches from './Components/Batches';
 import CourseList from './Components/CourseList';
 import Header from './Header';
-
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 function App() {
   return (
-    <>
-    
-    <Header/>
-    <OTPForm/>
-    </>
+    <DndProvider backend={HTML5Backend}>
+      <div className="App h-full bg-green-100 w-auto">
+        <Header/> 
+          <CourseList />
+       
+      </div>
+    </DndProvider>
     
     // <Router>
     //   <Switch>

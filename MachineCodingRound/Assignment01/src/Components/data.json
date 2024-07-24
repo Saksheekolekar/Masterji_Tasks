@@ -1,0 +1,38 @@
+[
+    {
+      "id": "1",
+      "title": "Interview preparation with javascript 2.0",
+      "price": "Rs.9000/-",
+      "type": "Course",
+      "image": "link-to-image-1"
+    },
+    {
+      "id": "2",
+      "title": "Aptitide-Average,Mixture and Allegation",
+      "price": "FREE",
+      "type": "Mock Test",
+      "image": "link-to-image-2"
+    },
+    {
+      "id": "3",
+      "title": "Aptitide-Simple and Compound Interest",
+      "price": "FREE",
+      "type": "Mock Test",
+      "image": "link-to-image-3"
+    },
+    {
+      "id": "4",
+      "title": "      Aptitide-Partnership        ",
+      "price": "FREE",
+      "type": "Mock Test",
+      "image": "link-to-image-2"
+    },
+    {
+      "id": "5",
+      "title": "Aptitide-Time and Work",
+      "price": "FREE",
+      "type": "Mock Test",
+      "image": "link-to-image-3"
+    }
+  ]
+  

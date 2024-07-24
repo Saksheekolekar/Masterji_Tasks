@@ -1,90 +1,61 @@
-// src/components/CourseList.jsx
 import React, { useState } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
-const initialCourses = [
-  { id: '1', name: 'Course 1' },
-  { id: '2', name: 'Course 2' },
-  { id: '3', name: 'Course 3' },
-];
+import { useDrop } from 'react-dnd';
+import CourseCard from './CourseCard';
+import data from './data.json';
 
 const CourseList = () => {
-  const [courses, setCourses] = useState(initialCourses);
+  const [courses, setCourses] = useState(data);
 
-  const onDragEnd = (result) => {
-    if (!result.destination) return;
-    const items = Array.from(courses);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    setCourses(items);
+  const moveCard = (fromIndex, toIndex) => {
+    const updatedCourses = [...courses];
+    const [movedCard] = updatedCourses.splice(fromIndex, 1);
+    updatedCourses.splice(toIndex, 0, movedCard);
+    setCourses(updatedCourses);
+  };
+
+  const removeCard = (index) => {
+    const updatedCourses = courses.filter((_, i) => i !== index);
+    setCourses(updatedCourses);
   };
 
   const moveToTop = (index) => {
-    const items = Array.from(courses);
-    const [movedItem] = items.splice(index, 1);
-    items.unshift(movedItem);
-    setCourses(items);
+    moveCard(index, 0);
   };
 
   const moveToBottom = (index) => {
-    const items = Array.from(courses);
-    const [movedItem] = items.splice(index, 1);
-    items.push(movedItem);
-    setCourses(items);
+    moveCard(index, courses.length - 1);
   };
 
-  const removeItem = (index) => {
-    const items = Array.from(courses);
-    items.splice(index, 1);
-    setCourses(items);
+  const [, drop] = useDrop({
+    accept: 'COURSE',
+  });
+  const handleImageClick = () => {
+    window.location.href = 'https://www.chaicode.com';
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="courses">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef} className="w-1/2 bg-white p-6 rounded shadow-md">
-              {courses.map((course, index) => (
-                <Draggable key={course.id} draggableId={course.id} index={index}>
-                  {(provided) => (
-                    <li
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      className="bg-gray-200 p-4 rounded mb-2 flex justify-between items-center"
-                    >
-                      {course.name}
-                      <div>
-                        <button
-                          className="bg-blue-500 text-white py-1 px-2 rounded mr-2"
-                          onClick={() => moveToTop(index)}
-                        >
-                          Move to Top
-                        </button>
-                        <button
-                          className="bg-yellow-500 text-white py-1 px-2 rounded mr-2"
-                          onClick={() => moveToBottom(index)}
-                        >
-                          Move to Bottom
-                        </button>
-                        <button
-                          className="bg-red-500 text-white py-1 px-2 rounded"
-                          onClick={() => removeItem(index)}
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </li>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
+    <>
+    <div className='bg-slate-100 shadow-2xl  p-6 pt-2 rounded-lg  w-fit  m-auto bg-slate-50s'>
+    <h3 className=' font-bold text-2xl text-black'>Manage Bundle</h3>
+    <h6 className='text-slate-500 font-normal'>change order of product based on priority.</h6>
+    <div ref={drop} className="course-list  ">
+      {courses.map((course, index) => (
+        <CourseCard
+          key={course.id}
+          index={index}
+          course={course}
+          moveCard={moveCard}
+          moveToTop={moveToTop}
+          moveToBottom={moveToBottom}
+          removeCard={removeCard}
+        />
+      ))}
     </div>
+    <div className="bg-transparent absolute bottom-4 right-4">
+        <img src=".\chai.png" alt="chai"  onClick={handleImageClick} className="w-36 h-24 rounded" />
+      </div>
+      </div>
+    </>
   );
 };
 
