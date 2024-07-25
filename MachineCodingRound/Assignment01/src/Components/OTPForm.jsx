@@ -56,10 +56,10 @@ const OTPForm = () => {
   return (
     <div className="grid grid-rows-4 p-0 m-0 bg-blue-500 w-screen h-screen text-center">
       <div className="bg-transparent mt-10 mx-4 text-center">
-        <h1 className="text-white font-bold">Chai Aur Code!</h1>
+        <h1 className="text-white text-4xl font-bold">Chai Aur Code!</h1>
       </div>
       <div className="row-span-2 mx-6 md:mx-80 rounded-3xl">
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl mt-4 p-12 gap-3">
+        <form onSubmit={handleSubmit} className="bg-white  rounded-2xl mt-4 p-12 gap-3">
           <h2 className="text-2xl text-center text-zinc-800 font-semibold mb-4">
             Mobile Phone Verification
           </h2>
@@ -98,7 +98,7 @@ const OTPForm = () => {
           </h3>
         </form>
       </div>
-      <div className="bg-transparent absolute bottom-4 right-4">
+      <div className="bg-transparent absolute bottom-8 right-5">
         <img src=".\chai.png" alt="chai"  onClick={handleImageClick} className="w-36 h-24 rounded" />
       </div>
     </div>

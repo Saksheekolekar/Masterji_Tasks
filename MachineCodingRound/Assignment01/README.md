@@ -1,8 +1,27 @@
-# React + Vite
+### Tasks Implemented
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **OTP Form**
 
-Currently, two official plugins are available:
+   ![OTP Form Screenshots](public/chai.png)
+   *Combined screenshots showing various states of OTP Form.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - **Empty Form State:** A form to input a 4-digit OTP.
+   - **Filling State:** The state during the input of the OTP.
+   - **Filled State (Success):** The state when the OTP is correctly filled.
+   - **Filled State (Error):** The state when the OTP is incorrectly filled.
+
+2. **Drag and Drop Course Cards**
+
+   ![Course Cards Screenshots](screenshots/course-cards.png)
+   *Screenshot of Drag and Drop Course Cards interface.*
+
+   - Implemented using a drag-and-drop library.
+   - Each card supports actions for "Move to Top," "Move to Bottom," and "Remove."
+
+3. **Data Table**
+
+   ![Data Table Screenshots](screenshots/data-table.png)
+   *Screenshot of Paginated Data Table with search functionality.*
+
+   - Paginated table listing batches of a course and their statuses.
+   - Includes a search option to filter the batches.

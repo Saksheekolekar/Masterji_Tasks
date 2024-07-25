@@ -35,6 +35,8 @@ const CourseList = () => {
 
   return (
     <>
+    <div className='w-full h-full p-8 bg-green-200 bg-opacity-95'>
+      <h1 className='text-center text-green-800 font-bold mb-2 text-4xl'>Chai aur Code</h1>
     <div className='bg-slate-100 shadow-2xl  p-6 pt-2 rounded-lg  w-fit  m-auto bg-slate-50s'>
     <h3 className=' font-bold text-2xl text-black'>Manage Bundle</h3>
     <h6 className='text-slate-500 font-normal'>change order of product based on priority.</h6>
@@ -54,7 +56,7 @@ const CourseList = () => {
     <div className="bg-transparent absolute bottom-4 right-4">
         <img src=".\chai.png" alt="chai"  onClick={handleImageClick} className="w-36 h-24 rounded" />
       </div>
-      </div>
+      </div></div>
     </>
   );
 };
